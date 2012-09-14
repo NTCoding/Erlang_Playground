@@ -18,7 +18,7 @@ start_scraper_with_monitoring() ->
 	end.
 
 start_scraper_on_available_node() ->
-	Pid = spawn(fun() -> scrape() end).
+	Pid = spawn(fun() -> scrape() end). %% You can specify here to use a remote node
 
 scrape() -> scrape(1).
 
