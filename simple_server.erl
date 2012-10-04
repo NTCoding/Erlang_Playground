@@ -9,9 +9,9 @@ start() ->
 loop() ->
        receive
        
-	        "quit" ->  io:format("Quit command received. Closing down server");
+	    "quit" ->  io:format("Quit command received. Closing down server");
 
 		Msg    ->  io:format("Received message: ~p~n", [Msg]),
-				    loop()																%% recursion keeps server alive and listening %%
+				    loop()		%% recursion keeps server alive and listening %%
 
 	end.				

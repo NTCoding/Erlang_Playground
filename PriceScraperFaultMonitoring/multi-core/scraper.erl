@@ -4,12 +4,12 @@
 
 
 start() -> 
-	spawn(fun() -> start_scraper_with_monitoring() end).
+	spawn(fun() -> start_scraper_with_monitoring() end). %% Async
 
 start_scraper_with_monitoring() ->
 	Pid = start_scraper_on_available_node(),
-	process_flag(trap_exit, true),
-	link(Pid),
+	process_flag(trap_exit, true), %% This is a monitoring (system) process
+	link(Pid), %% We are going to listen for errors in the process running the scraper
 	receive
 		{'EXIT', Pid, Why} -> 
 			io:format("Pid: ~p died. Reason: ~p~n", [Pid, Why]),
