@@ -13,6 +13,6 @@ wait_for_messages() ->
 		{From, Message} ->
 			io:format("Receiver received: ~p from: ~p~n", [Message, From]),
 			io:format("Receiver returning to sender: You've got a fat bum~n"),
-			From ! {self(), "You've got a fat bum"}
+			From ! {self(), "You've got a fat bum"} %% so I like to tell my girlfriend
 
 	end.
